@@ -3,12 +3,11 @@
 
 (* ::Input::Initialization:: *)
 (*PacletInstall["http://github.com/jkuczm/MathematicaCellsToTeX/releases/download/v0.2.2/CellsToTeX-0.2.2"]*)
+
 (*This package turns Mathematica input into Tex code*)(* Needs["CellsToTeX`"]*)
 (*NCAlgebra allows for non commutative expr*)
-
 PacletInstall["https://github.com/NCAlgebra/NC/blob/v6.0.0/NCAlgebra-6.0.0.paclet?raw=true"];
 <<NCAlgebra`;
-
 
 (* ::Input::Initialization:: *)
 (* To clear all variables *)

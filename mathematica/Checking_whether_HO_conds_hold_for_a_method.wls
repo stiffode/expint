@@ -2,14 +2,12 @@
 (* ::Package:: *)
 
 (* ::Input::Initialization:: *)
-(* This package turns Mathematica input into Tex code*)
-Needs["CellsToTeX`"]
-(* NCAlgebra to allow for non commutative expr *)
-(*Import["https://raw.githubusercontent.com/NCAlgebra/NC/master/NCExtras/NCWebInstall.m",CharacterEncoding->"UTF8"];*)
-(*Needs["NCAlgebra`"]*)
-<<NC`;
-<<NCAlgebra`;
+(*PacletInstall["http://github.com/jkuczm/MathematicaCellsToTeX/releases/download/v0.2.2/CellsToTeX-0.2.2"]*)
 
+(*This package turns Mathematica input into Tex code*)(* Needs["CellsToTeX`"]*)
+(*NCAlgebra allows for non commutative expr*)
+PacletInstall["https://github.com/NCAlgebra/NC/blob/v6.0.0/NCAlgebra-6.0.0.paclet?raw=true"];
+<<NCAlgebra`;
 
 (* ::Input::Initialization:: *)
 (* To clear all variables *)
@@ -882,8 +880,3 @@ order5a = order5a/.{L->0};
 allorder5 = Join[order5a,ExpandNonCommutativeMultiply[order5b],ExpandNonCommutativeMultiply[order5c],order5d,order5e,order5f,order5g,order5h,order5i];
 
 FullSimplify[allorder5]
-
-
-(* ::Input::Initialization:: *)
-testCell = NotebookRead[Cells[][[33]]];
-CellToTeX[testCell]
