@@ -2,12 +2,12 @@
 (* ::Package:: *)
 
 (* ::Input::Initialization:: *)
-(* This package turns Mathematica input into Tex code*)
-Needs["CellsToTeX`"]
-(* NCAlgebra to allow for non commutative expr *)
-<<NC`;
-<<NCAlgebra`;
+(*PacletInstall["http://github.com/jkuczm/MathematicaCellsToTeX/releases/download/v0.2.2/CellsToTeX-0.2.2"]*)
+(*This package turns Mathematica input into Tex code*)(* Needs["CellsToTeX`"]*)
+(*NCAlgebra allows for non commutative expr*)
 
+PacletInstall["https://github.com/NCAlgebra/NC/blob/v6.0.0/NCAlgebra-6.0.0.paclet?raw=true"];
+<<NCAlgebra`;
 
 (* ::Input::Initialization:: *)
 (* To clear all variables *)
@@ -396,9 +396,3 @@ a[[s]] = asOriginal;
 (*fractionParams={a2211\[Rule]2000,a2212\[Rule]-(1/6),a2221\[Rule]1/9,a2222\[Rule]-(1/6),a2224\[Rule]-(1/13),a2231\[Rule]1/10,a2232\[Rule]-(1/5),a2234\[Rule]0,a3322\[Rule]1/4,a4411\[Rule]0,a4412\[Rule]0,a4414\[Rule]0,a4421\[Rule]0,a4422\[Rule]0,a4424\[Rule]-(1/9),a4431\[Rule]0,a4432\[Rule]0};*)
 aERK43ZB = a/.fractionParams
 aERK43ZB/.{L->0}
-
-
-
-(* ::Input::Initialization:: *)
-testCell = NotebookRead[Cells[][[3]]];
-CellToTeX[testCell]

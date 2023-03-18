@@ -2,11 +2,11 @@
 (* ::Package:: *)
 
 (* ::Input::Initialization:: *)
-(*This package turns Mathematica input into Tex code*)Needs["CellsToTeX`"]
-(*NCAlgebra to allow for non commutative expr*)
-(*Import["https://raw.githubusercontent.com/NCAlgebra/NC/master/NCExtras/NCWebInstall.m",CharacterEncoding->"UTF8"];*)
-(*Needs["NCAlgebra`"]*)
-<<NC`;
+(*PacletInstall["http://github.com/jkuczm/MathematicaCellsToTeX/releases/download/v0.2.2/CellsToTeX-0.2.2"]*)
+(*This package turns Mathematica input into Tex code*)(* Needs["CellsToTeX`"]*)
+(*NCAlgebra allows for non commutative expr*)
+
+PacletInstall["https://github.com/NCAlgebra/NC/blob/v6.0.0/NCAlgebra-6.0.0.paclet?raw=true"];
 <<NCAlgebra`;
 
 
@@ -311,8 +311,3 @@ aERK32ZBs = a/.fractionParams
 (* ::Input:: *)
 (*aERK32ZBs/.{L->0}*)
 (**)
-
-
-(* ::Input::Initialization:: *)
-testCell = NotebookRead[Cells[][[3]]];
-CellToTeX[testCell]
