@@ -195,14 +195,16 @@ Length[allCoefs]
 (* Don't run the following line unnesecarily because it takes a long time *)
 (*solution=Solve[allCoefs==0]; *)
 (* Importing the solution for the weights*)
-solution = ToExpression[Import["/home/warhammer/Documents/Thoma_Zoto/UALBERTA_courses/Research/math/General_3_2_EXP_Method_half_three_fourth_one.txt", "List"
+solution = ToExpression[Import[FileNameJoin[{NotebookDirectory[], 
+  "General_3_2_EXP_Method_half_three_fourth_one.txt"}], "List"
 ]];
 
 
 (* ::Input::Initialization:: *)
 (* Saving the 'solution' output for later use *)
 (* Only run this if you are solving the system and not importing the solution.*)
-(*Export["/home/warhammer/Documents/Thoma_Zoto/UALBERTA_courses/Research/math/General_3_2_EXP_Method_half_three_fourth_one.txt",solution];*)
+(*Export[FileNameJoin[{NotebookDirectory[], 
+  "General_3_2_EXP_Method_half_three_fourth_one.txt"}],solution];*)
 
 
 (* ::Input::Initialization:: *)
@@ -294,9 +296,9 @@ normSquared = normSquared + (allorder4higherCoef[[i,j,2]])^2;
 (* ::Input::Initialization:: *)
 (*Minimizing the norm of the coefficients in front of terms involving J,K,W in the stiff order conditions for order 5 *)
 norm = {Sqrt[normSquared]};
-optimalParameters = NMinimize[Join[norm,allorder3lower],Variables[Values[method]]]
+optimalParameters = NMinimize[Join[norm,allorder3lower],Variables[Values[method]]];
 (* Approximating the selected parameters with fractions *)
-fractionParams=Rationalize[optimalParameters[[2]],0.1]
+fractionParams=Rationalize[optimalParameters[[2]],0.1];
 
 
 (* ::Input::Initialization:: *)
@@ -304,10 +306,6 @@ fractionParams=Rationalize[optimalParameters[[2]],0.1]
 (* normSquared for the method with fractional coefficients is approximately 4.81 *)
 a[[s-1]] = asOriginal2;
 aERK32ZBs = a/.fractionParams
-aERK32ZBs[[4]][[1]];
-aERK32ZBs[[4]][[2]];
-aERK32ZBs[[4]][[3]];
-aERK32ZBs[[4]][[4]];
 
 
 (* ::Input:: *)
@@ -316,5 +314,5 @@ aERK32ZBs[[4]][[4]];
 
 
 (* ::Input::Initialization:: *)
-testCell = NotebookRead[Cells[][[39]]];
+testCell = NotebookRead[Cells[][[3]]];
 CellToTeX[testCell]

@@ -235,14 +235,16 @@ Length[allCoefs]
 (* Don't run the following line unnesecarily because it takes a long time *)
 (*solution=Solve[allCoefs==0];*)
 (* Importing the solution for the weights*)
-solution = ToExpression[Import["/home/warhammer/Documents/Thoma_Zoto/UALBERTA_courses/Research/math/General_4_EXP_Method_last_inretm_stage_3rd_order_sixth_half_half_one_one.txt", "List"
+solution = ToExpression[Import[FileNameJoin[{NotebookDirectory[], 
+  "General_4_EXP_Method_last_inretm_stage_3rd_order_sixth_half_half_one_one.txt"}], "List"
 ]];
 
 
 (* ::Input::Initialization:: *)
 (* Saving the 'solution' output for later use *)
 (* Only run this if you are solving the system and not importing the solution.*)
-(*Export["/home/warhammer/Documents/Thoma_Zoto/UALBERTA_courses/Research/math/General_4_EXP_Method_last_inretm_stage_3rd_order_sixth_half_half_one_one.txt",solution];*)
+(*Export[FileNameJoin[{NotebookDirectory[], 
+  "General_4_EXP_Method_last_inretm_stage_3rd_order_sixth_half_half_one_one.txt"}],solution];*)
 
 
 (* ::Input::Initialization:: *)
@@ -383,20 +385,20 @@ normSquared = normSquared + (order5hhigher[[i]])^2;];
 (* ::Input::Initialization:: *)
 (*Minimizing the norm of the coefficients in front of terms involving J,K,W in the stiff order conditions for order 5 *)
 norm = {Sqrt[normSquared]};
-optimalParameters = NMinimize[Join[norm,allorder4lower],Variables[Values[method]]]
+optimalParameters = NMinimize[Join[norm,allorder4lower],Variables[Values[method]]];
 (* Approximating the selected parameters with fractions *)
-fractionParams=Rationalize[optimalParameters[[2]],0.1]
+fractionParams=Rationalize[optimalParameters[[2]],0.1];
 
 
 (* ::Input::Initialization:: *)
 (* Displaying the final Butcher tableau *)
 a[[s]] = asOriginal;
 (*fractionParams={a2211\[Rule]2000,a2212\[Rule]-(1/6),a2221\[Rule]1/9,a2222\[Rule]-(1/6),a2224\[Rule]-(1/13),a2231\[Rule]1/10,a2232\[Rule]-(1/5),a2234\[Rule]0,a3322\[Rule]1/4,a4411\[Rule]0,a4412\[Rule]0,a4414\[Rule]0,a4421\[Rule]0,a4422\[Rule]0,a4424\[Rule]-(1/9),a4431\[Rule]0,a4432\[Rule]0};*)
-aERK43ZB = a/.fractionParams;
+aERK43ZB = a/.fractionParams
 aERK43ZB/.{L->0}
 
 
 
 (* ::Input::Initialization:: *)
-testCell = NotebookRead[Cells[][[39]]];
+testCell = NotebookRead[Cells[][[3]]];
 CellToTeX[testCell]
